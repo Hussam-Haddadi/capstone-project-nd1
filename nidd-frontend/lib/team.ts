@@ -51,7 +51,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     links: [
       {
         kind: "linkedin",
-        href: "https://www.linkedin.com/in/abdullah-faleh-6557a22a7?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        href: "https://www.linkedin.com/in/majid-alnodali-93654b362?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
         label: "LinkedIn",
       },
       { kind: "github", href: "", label: "GitHub" },
