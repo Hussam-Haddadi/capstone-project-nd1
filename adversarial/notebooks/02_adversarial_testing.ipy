@@ -1,0 +1,51 @@
+"""
+02_adversarial_testing.ipy
+
+نفس نوتبوك adversarial testing لكن لموديل V2:
+  model_defenseV2/models/defence_model_v2.pkl
+
+ملاحظة: لو تبي تشغله كنوتبوك افتح `02_adversarial_testing.ipynb`.
+"""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path().resolve().parent.parent))
+sys.path.insert(0, str(Path().resolve().parent.parent / "attack" / "src"))
+
+import pandas as pd
+from generator import PhishingGenerator
+from mutator import AdversarialMutator
+from adversarial.src.evaluator import AdversarialEvaluator
+
+ROOT = Path().resolve().parent.parent
+MODEL_V2 = ROOT / "model_defenseV2" / "models" / "defence_model_v2.pkl"
+print(f"Using defense model: {MODEL_V2}")
+
+# 1) generate fresh phishing messages (fit on V2 dataset)
+df = pd.read_csv("../../data/processed/final_dataset_v2.csv").drop_duplicates(subset="text")
+gen = PhishingGenerator(seed=99)
+gen.fit(df[df["Label"] == 0]["text"].tolist())
+phishing_msgs = [m["text"] for m in gen.generate(count=50)]
+print(f"Generated {len(phishing_msgs)} fresh phishing messages")
+
+# 2) evaluate against defense model V2
+evl = AdversarialEvaluator(model_path=str(MODEL_V2))
+report = evl.evaluate(phishing_msgs)
+print("=== Defense Model Results (V2) ===")
+print(f'  Tested:         {report["total"]}')
+print(f'  Detected:       {report["detected"]}')
+print(f'  Evaded:         {report["evaded"]}')
+print(f'  Detection rate: {report["detection_rate"]*100:.1f}%')
+print(f'  Evasion rate:   {report["evasion_rate"]*100:.1f}%')
+
+# 3) adversarial mutations
+mut = AdversarialMutator(seed=99)
+mut_results = mut.mutate_batch(phishing_msgs[:20], mutations_per_text=2)
+mut_report = evl.evaluate_mutations(mut_results)
+print("=== Mutation Effectiveness ===")
+print(f'  Total evasions: {mut_report["total_evasions"]}/{mut_report["total_tested"]}')
+print(f'  Evasion rate:   {mut_report["evasion_rate"]*100:.1f}%')
+for m, s in mut_report["per_mutation_stats"].items():
+    print(f'    {m:20s}: {s["evasions"]}/{s["total"]} ({s["evasion_rate"]*100:.0f}%)')
+

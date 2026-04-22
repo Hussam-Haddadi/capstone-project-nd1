@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">
+    Model Performance
+  </text>
+  <text x="450" y="52" text-anchor="middle" font-size="13" fill="#64748b">
+    Evaluated via 5-fold stratified cross-validation on Golden Dataset
+  </text>
+
+  <!-- Metrics cards -->
+  <g>
+    <!-- Accuracy -->
+    <rect x="40" y="85" width="195" height="110" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="137" y="115" text-anchor="middle" font-size="13" fill="#1e40af">Accuracy</text>
+    <text x="137" y="155" text-anchor="middle" font-size="36" font-weight="700" fill="#1e3a8a">98.9%</text>
+    <text x="137" y="180" text-anchor="middle" font-size="11" fill="#2563eb">Overall correctness</text>
+  </g>
+  
+  <g>
+    <!-- Recall -->
+    <rect x="250" y="85" width="195" height="110" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="347" y="115" text-anchor="middle" font-size="13" fill="#166534">Recall</text>
+    <text x="347" y="155" text-anchor="middle" font-size="36" font-weight="700" fill="#14532d">99.6%</text>
+    <text x="347" y="180" text-anchor="middle" font-size="11" fill="#15803d">Phishing caught</text>
+  </g>
+  
+  <g>
+    <!-- Precision -->
+    <rect x="460" y="85" width="195" height="110" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="557" y="115" text-anchor="middle" font-size="13" fill="#78350f">Precision</text>
+    <text x="557" y="155" text-anchor="middle" font-size="36" font-weight="700" fill="#78350f">98.4%</text>
+    <text x="557" y="180" text-anchor="middle" font-size="11" fill="#92400e">Low false alarms</text>
+  </g>
+  
+  <g>
+    <!-- F1 -->
+    <rect x="670" y="85" width="195" height="110" rx="12" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+    <text x="767" y="115" text-anchor="middle" font-size="13" fill="#581c87">F1 Score</text>
+    <text x="767" y="155" text-anchor="middle" font-size="36" font-weight="700" fill="#581c87">99.0%</text>
+    <text x="767" y="180" text-anchor="middle" font-size="11" fill="#7e22ce">Balanced performance</text>
+  </g>
+
+  <!-- Confusion Matrix -->
+  <g transform="translate(40, 220)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1e293b">Confusion Matrix</text>
+    <text x="0" y="18" font-size="10" fill="#64748b">2,462 messages tested</text>
+
+    <!-- Grid -->
+    <g transform="translate(40, 35)">
+      <!-- Headers -->
+      <text x="75" y="15" text-anchor="middle" font-size="11" fill="#475569">Predicted: Safe</text>
+      <text x="215" y="15" text-anchor="middle" font-size="11" fill="#475569">Predicted: Phishing</text>
+
+      <text x="-30" y="55" text-anchor="end" font-size="11" fill="#475569">Actual: Safe</text>
+      <text x="-30" y="110" text-anchor="end" font-size="11" fill="#475569">Actual: Phishing</text>
+
+      <!-- TN -->
+      <rect x="0" y="25" width="150" height="60" fill="#22c55e" rx="6"/>
+      <text x="75" y="55" text-anchor="middle" font-size="22" font-weight="700" fill="white">1,048</text>
+      <text x="75" y="75" text-anchor="middle" font-size="11" fill="white">True Negative</text>
+
+      <!-- FP -->
+      <rect x="160" y="25" width="150" height="60" fill="#fbbf24" rx="6"/>
+      <text x="235" y="55" text-anchor="middle" font-size="22" font-weight="700" fill="white">22</text>
+      <text x="235" y="75" text-anchor="middle" font-size="11" fill="white">False Positive</text>
+
+      <!-- FN -->
+      <rect x="0" y="90" width="150" height="60" fill="#ef4444" rx="6"/>
+      <text x="75" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="white">5</text>
+      <text x="75" y="140" text-anchor="middle" font-size="11" fill="white">False Negative</text>
+
+      <!-- TP -->
+      <rect x="160" y="90" width="150" height="60" fill="#16a34a" rx="6"/>
+      <text x="235" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="white">1,387</text>
+      <text x="235" y="140" text-anchor="middle" font-size="11" fill="white">True Positive</text>
+    </g>
+  </g>
+
+  <!-- Dataset info -->
+  <g transform="translate(480, 220)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1e293b">Dataset: Golden</text>
+    <text x="0" y="18" font-size="10" fill="#64748b">Balanced & representative</text>
+
+    <!-- Bars -->
+    <g transform="translate(0, 45)">
+      <!-- Phishing -->
+      <text x="0" y="12" font-size="11" fill="#991b1b">Phishing</text>
+      <rect x="80" y="0" width="300" height="18" fill="#fecaca" rx="3"/>
+      <rect x="80" y="0" width="220" height="18" fill="#dc2626" rx="3"/>
+      <text x="310" y="13" font-size="11" fill="#991b1b">1,392</text>
+      
+      <!-- Safe -->
+      <text x="0" y="42" font-size="11" fill="#14532d">Safe</text>
+      <rect x="80" y="30" width="300" height="18" fill="#bbf7d0" rx="3"/>
+      <rect x="80" y="30" width="170" height="18" fill="#16a34a" rx="3"/>
+      <text x="260" y="43" font-size="11" fill="#14532d">1,070</text>
+      
+      <!-- Total -->
+      <text x="0" y="72" font-size="11" font-weight="600" fill="#0f172a">Total</text>
+      <text x="80" y="72" font-size="12" font-weight="600" fill="#0f172a">2,462 messages</text>
+      
+      <!-- Ratio -->
+      <text x="0" y="95" font-size="10" fill="#64748b">Ratio: 1.30 : 1 (slight phishing bias, safety-first)</text>
+      
+      <!-- Categories -->
+      <text x="0" y="125" font-size="11" fill="#475569">8 phishing categories covered:</text>
+      <text x="0" y="142" font-size="10" fill="#64748b">URL+brand · rewards · delivery · gov</text>
+      <text x="0" y="156" font-size="10" fill="#64748b">phone · leetspeak · shorteners · social</text>
+    </g>
+  </g>
+</svg>

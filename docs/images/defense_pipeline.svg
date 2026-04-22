@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <linearGradient id="phishGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fee2e2"/>
+      <stop offset="100%" stop-color="#fca5a5"/>
+    </linearGradient>
+    <linearGradient id="safeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">
+    Detection Pipeline
+  </text>
+  <text x="450" y="52" text-anchor="middle" font-size="13" fill="#64748b">
+    From SMS message to verdict in milliseconds
+  </text>
+
+  <!-- Step 1: Input Message -->
+  <g>
+    <rect x="30" y="90" width="150" height="80" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+    <text x="105" y="118" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">
+      1. SMS Message
+    </text>
+    <text x="105" y="140" text-anchor="middle" font-size="11" fill="#475569">رسالة SMS</text>
+    <text x="105" y="158" text-anchor="middle" font-size="10" fill="#64748b">
+      Arabic text input
+    </text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="185" y1="130" x2="215" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Feature Extraction -->
+  <g>
+    <rect x="220" y="90" width="180" height="80" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="310" y="118" text-anchor="middle" font-size="13" font-weight="600" fill="#1e3a8a">
+      2. Feature Extraction
+    </text>
+    <text x="310" y="140" text-anchor="middle" font-size="11" fill="#1e40af">استخراج الخصائص</text>
+    <text x="310" y="158" text-anchor="middle" font-size="10" fill="#1d4ed8">
+      39 hand-crafted features
+    </text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="405" y1="130" x2="435" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Triple TF-IDF -->
+  <g>
+    <rect x="440" y="90" width="180" height="80" rx="10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+    <text x="530" y="114" text-anchor="middle" font-size="13" font-weight="600" fill="#581c87">
+      3. Triple TF-IDF
+    </text>
+    <text x="530" y="134" text-anchor="middle" font-size="10" fill="#6b21a8">Word + Char + URL</text>
+    <text x="530" y="152" text-anchor="middle" font-size="9" fill="#7e22ce">
+      2500 + 1500 + 500 features
+    </text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="625" y1="130" x2="655" y2="130" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: ML Ensemble -->
+  <g>
+    <rect x="660" y="90" width="210" height="80" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="765" y="114" text-anchor="middle" font-size="13" font-weight="600" fill="#78350f">
+      4. Voting Ensemble
+    </text>
+    <text x="765" y="134" text-anchor="middle" font-size="10" fill="#92400e">5 classifiers vote</text>
+    <text x="765" y="152" text-anchor="middle" font-size="9" fill="#b45309">
+      LR · NB · SVM · RF · GB
+    </text>
+  </g>
+
+  <!-- Down arrow from ensemble -->
+  <line x1="765" y1="175" x2="765" y2="220" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Hard Rules -->
+  <g>
+    <rect x="640" y="225" width="250" height="100" rx="10" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+    <text x="765" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#7c2d12">
+      5. Hard Rules Safety Net
+    </text>
+    <text x="765" y="272" text-anchor="middle" font-size="11" fill="#9a3412">طبقة القواعد الصارمة</text>
+    <text x="765" y="290" text-anchor="middle" font-size="10" fill="#c2410c">
+      8 deterministic rules
+    </text>
+    <text x="765" y="308" text-anchor="middle" font-size="9" fill="#9a3412">
+      typosquatting · shorteners · phone spam
+    </text>
+  </g>
+
+  <!-- Arrow down to verdict -->
+  <line x1="765" y1="330" x2="765" y2="370" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Verdict Box (Phishing) -->
+  <g>
+    <rect x="380" y="380" width="200" height="100" rx="10" fill="url(#phishGrad)" stroke="#b91c1c" stroke-width="2"/>
+    <text x="480" y="410" text-anchor="middle" font-size="16" font-weight="700" fill="#7f1d1d">
+      🚨 PHISHING
+    </text>
+    <text x="480" y="432" text-anchor="middle" font-size="12" fill="#991b1b">تصيد احتيالي</text>
+    <text x="480" y="452" text-anchor="middle" font-size="10" fill="#b91c1c">
+      risk score + flags + confidence
+    </text>
+    <text x="480" y="468" text-anchor="middle" font-size="9" fill="#7f1d1d">
+      method: ml / rules / ml+rules
+    </text>
+  </g>
+
+  <!-- Verdict Box (Safe) -->
+  <g>
+    <rect x="635" y="380" width="200" height="100" rx="10" fill="url(#safeGrad)" stroke="#15803d" stroke-width="2"/>
+    <text x="735" y="410" text-anchor="middle" font-size="16" font-weight="700" fill="#14532d">
+      ✅ SAFE
+    </text>
+    <text x="735" y="432" text-anchor="middle" font-size="12" fill="#166534">رسالة آمنة</text>
+    <text x="735" y="452" text-anchor="middle" font-size="10" fill="#15803d">
+      risk score = 0
+    </text>
+    <text x="735" y="468" text-anchor="middle" font-size="9" fill="#14532d">
+      message passes all checks
+    </text>
+  </g>
+
+  <!-- Decision branches from rules -->
+  <line x1="740" y1="350" x2="480" y2="380" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="790" y1="350" x2="735" y2="380" stroke="#15803d" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Left side explanatory notes -->
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="340" height="240" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="15" y="25" font-size="13" font-weight="600" fill="#0f172a">
+      What each stage catches:
+    </text>
+    <text x="15" y="55" font-size="11" fill="#1e40af">● Feature Extraction:</text>
+    <text x="30" y="72" font-size="10" fill="#475569">URLs, phones, keywords, risk score</text>
+    
+    <text x="15" y="95" font-size="11" fill="#6b21a8">● Triple TF-IDF:</text>
+    <text x="30" y="112" font-size="10" fill="#475569">word patterns, char n-grams, URL structure</text>
+    
+    <text x="15" y="135" font-size="11" fill="#b45309">● Ensemble:</text>
+    <text x="30" y="152" font-size="10" fill="#475569">5 models vote — robust to adversarial tricks</text>
+    
+    <text x="15" y="175" font-size="11" fill="#c2410c">● Hard Rules:</text>
+    <text x="30" y="192" font-size="10" fill="#475569">catches obvious phishing the ML might miss</text>
+    
+    <text x="15" y="220" font-size="10" font-style="italic" fill="#64748b">
+      Defense-in-depth: every layer adds coverage
+    </text>
+  </g>
+</svg>

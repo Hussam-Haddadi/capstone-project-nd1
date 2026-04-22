@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" width="100%" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+  </defs>
+
+  <text x="460" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e293b">End-to-End Pipeline</text>
+  <text x="460" y="46" text-anchor="middle" font-size="12" fill="#64748b">sms_dataset.csv → Attack → final_dataset.csv → Defense → defence_model.pkl</text>
+
+  <!-- Phase labels -->
+  <rect x="25" y="65" width="285" height="25" rx="4" fill="#fee2e2"/>
+  <text x="167" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">المرحلة 1: الهجوم (Attack)</text>
+  <rect x="325" y="65" width="265" height="25" rx="4" fill="#dcfce7"/>
+  <text x="457" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">المرحلة 2: الدفاع (Defense)</text>
+  <rect x="605" y="65" width="290" height="25" rx="4" fill="#e0e7ff"/>
+  <text x="750" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#3730a3">المرحلة 3: الاختبار التقابلي</text>
+
+  <!-- Step 1: Raw Data -->
+  <rect x="25" y="105" width="130" height="70" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+  <text x="90" y="130" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">📄 sms_dataset</text>
+  <text x="90" y="148" text-anchor="middle" font-size="9" fill="#64748b">1,186 رسالة خام</text>
+  <text x="90" y="163" text-anchor="middle" font-size="9" fill="#64748b">596 تصيد + 590 آمنة</text>
+
+  <line x1="160" y1="140" x2="185" y2="140" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 2: Cleaning -->
+  <rect x="190" y="105" width="120" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="250" y="130" text-anchor="middle" font-size="11" font-weight="600" fill="#78350f">🧹 تنظيف</text>
+  <text x="250" y="148" text-anchor="middle" font-size="9" fill="#92400e">حذف التكرارات</text>
+  <text x="250" y="163" text-anchor="middle" font-size="9" fill="#92400e">فحص الجودة</text>
+
+  <line x1="250" y1="180" x2="250" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 3: Generator -->
+  <rect x="30" y="215" width="135" height="75" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="97" y="238" text-anchor="middle" font-size="11" font-weight="600" fill="#7f1d1d">🎣 Generator</text>
+  <text x="97" y="256" text-anchor="middle" font-size="9" fill="#991b1b">N-gram + Templates</text>
+  <text x="97" y="271" text-anchor="middle" font-size="9" fill="#991b1b">8 فئات تصيد</text>
+  <text x="97" y="283" text-anchor="middle" font-size="8" fill="#b91c1c">+ رسائل آمنة</text>
+
+  <line x1="170" y1="252" x2="185" y2="252" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 4: Mutation -->
+  <rect x="190" y="215" width="120" height="75" rx="8" fill="#fce7f3" stroke="#be185d" stroke-width="1.5"/>
+  <text x="250" y="238" text-anchor="middle" font-size="11" font-weight="600" fill="#831843">🧬 Mutator</text>
+  <text x="250" y="256" text-anchor="middle" font-size="9" fill="#9f1239">8 تقنيات تهرّب</text>
+  <text x="250" y="271" text-anchor="middle" font-size="9" fill="#9f1239">Leetspeak, Typo</text>
+  <text x="250" y="283" text-anchor="middle" font-size="8" fill="#be185d">Shortener, Noise</text>
+
+  <line x1="250" y1="295" x2="250" y2="320" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 5: Final Dataset -->
+  <rect x="170" y="325" width="160" height="55" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="250" y="348" text-anchor="middle" font-size="12" font-weight="700" fill="#14532d">📦 final_dataset</text>
+  <text x="250" y="366" text-anchor="middle" font-size="10" fill="#166534">2,462 رسالة متوازنة</text>
+
+  <line x1="335" y1="352" x2="365" y2="352" stroke="#16a34a" stroke-width="2" marker-end="url(#ag)"/>
+
+  <!-- Step 6: Features -->
+  <rect x="370" y="105" width="120" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="430" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">🔬 Features</text>
+  <text x="430" y="146" text-anchor="middle" font-size="9" fill="#1e40af">39 خاصية يدوية</text>
+  <text x="430" y="161" text-anchor="middle" font-size="9" fill="#1e40af">+ TF-IDF ثلاثي</text>
+
+  <!-- Step 7: Ensemble -->
+  <rect x="370" y="215" width="120" height="70" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="430" y="238" text-anchor="middle" font-size="11" font-weight="600" fill="#78350f">🤖 Ensemble</text>
+  <text x="430" y="256" text-anchor="middle" font-size="9" fill="#92400e">5 موديلات تصوّت</text>
+  <text x="430" y="271" text-anchor="middle" font-size="9" fill="#92400e">LR·NB·SVM·RF·GB</text>
+
+  <!-- Step 8: Rules -->
+  <rect x="370" y="325" width="120" height="55" rx="8" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="430" y="348" text-anchor="middle" font-size="11" font-weight="600" fill="#7c2d12">🛡️ Hard Rules</text>
+  <text x="430" y="366" text-anchor="middle" font-size="9" fill="#9a3412">8 قواعد صارمة</text>
+
+  <!-- Defense arrows -->
+  <line x1="430" y1="180" x2="430" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="290" x2="430" y2="320" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Connect final_dataset to features -->
+  <line x1="370" y1="352" x2="370" y2="140" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="370" cy="140" r="3" fill="#16a34a"/>
+
+  <!-- Step 9: Defence Model -->
+  <rect x="510" y="215" width="160" height="70" rx="10" fill="#e9d5ff" stroke="#7e22ce" stroke-width="2"/>
+  <text x="590" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#581c87">defence_model</text>
+  <text x="590" y="258" text-anchor="middle" font-size="10" fill="#6b21a8">.pkl — 1.6 MB</text>
+  <text x="590" y="273" text-anchor="middle" font-size="9" fill="#7e22ce">F1: 99.04% | Recall: 99.64%</text>
+
+  <line x1="495" y1="250" x2="505" y2="250" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Step 10: Adversarial -->
+  <rect x="700" y="105" width="195" height="155" rx="10" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="797" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#312e81">⚔️ Adversarial Test</text>
+  <text x="797" y="150" text-anchor="middle" font-size="10" fill="#3730a3">المرحلة 3</text>
+  <text x="797" y="172" text-anchor="middle" font-size="9" fill="#4338ca">1. توليد رسائل جديدة</text>
+  <text x="797" y="188" text-anchor="middle" font-size="9" fill="#4338ca">2. اختبار ضد الدفاع</text>
+  <text x="797" y="204" text-anchor="middle" font-size="9" fill="#4338ca">3. قياس نسبة التهرّب</text>
+  <text x="797" y="220" text-anchor="middle" font-size="9" fill="#4338ca">4. تحسين الطرفين</text>
+  <text x="797" y="248" text-anchor="middle" font-size="10" fill="#312e81" font-weight="600">Detection Rate: ~100%</text>
+
+  <!-- Connect defense model to adversarial -->
+  <line x1="675" y1="250" x2="695" y2="200" stroke="#4338ca" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Feedback loop -->
+  <path d="M 797 265 L 797 340 Q 797 360 777 360 L 170 360 Q 150 360 150 340 L 150 295" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ar)"/>
+  <text x="480" y="375" text-anchor="middle" font-size="10" fill="#ef4444" font-style="italic">feedback loop — تحسين مستمر</text>
+</svg>
